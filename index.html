@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Legg Awards 2025</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bounded:wght@900&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: sans-serif;
+      color: #e6eef7;
+      background: #000000;
+      overflow-x: hidden;
+      position: relative;
+    }
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: float linear infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(0.5); opacity:0; }
+      50% { opacity:0.6; }
+      100% { transform: translateY(-10vh) scale(1); opacity:0; }
+    }
+    header {
+      text-align: center;
+      padding: 120px 20px 40px;
+      position: relative;
+      z-index:2;
+    }
+    h1, h2 {
+      font-family: 'Bounded', sans-serif;
+      color: #4da6ff;
+      text-shadow: 0 0 15px rgba(77,166,255,0.3);
+      margin-bottom: 10px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out;
+    }
+    h1 {
+      font-weight: 900;
+      font-size: 3rem;
+      animation: titlePulse 3s ease-in-out infinite alternate;
+    }
+    @keyframes titlePulse {
+      0% { text-shadow: 0 0 10px rgba(77,166,255,0.2); }
+      100% { text-shadow: 0 0 25px rgba(77,166,255,0.4); }
+    }
+    .subtitle {
+      font-size: 1.1rem;
+      color: #8ea8c3;
+      margin-top: 10px;
+      letter-spacing: 0.5px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.8s ease-out 0.2s;
+    }
+    .button-container { margin-top: 40px; }
+    a.vote-button, a.tg-button {
+      font-family: sans-serif;
+      display: inline-block;
+      padding: 15px 45px;
+      border-radius: 50px;
+      background: #1a3c63;
+      color: #e6eef7;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1.2rem;
+      border: 1px solid #4da6ff;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(77,166,255,0.2);
+      margin-top: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out 0.4s;
+    }
+    a.vote-button:hover, a.tg-button:hover {
+      background: #285c8e;
+      box-shadow: 0 0 25px rgba(77,166,255,0.3);
+      transform: scale(1.05);
+    }
+    section {
+      max-width: 800px;
+      margin: 70px auto;
+      padding: 40px 20px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 16px;
+      backdrop-filter: blur(6px);
+      position: relative;
+      z-index:1;
+    }
+    ul {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      padding: 0 20px;
+    }
+    li {
+      background: rgba(255,255,255,0.03);
+      border-left: 3px solid transparent;
+      border-radius: 8px;
+      padding: 12px 18px;
+      font-size: 1.05rem;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    li:hover {
+      background: rgba(77,166,255,0.08);
+      border-left: 3px solid #4da6ff;
+      transform: translateX(4px);
+      box-shadow: 0 0 8px rgba(77,166,255,0.15);
+    }
+    footer {
+      text-align: center;
+      padding: 60px 20px 40px;
+      color: #6b7f97;
+      font-size: 0.9rem;
+      position: relative;
+      z-index:2;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out 0.2s;
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.4rem; }
+      .subtitle { font-size: 1rem; }
+      a.vote-button, a.tg-button { padding: 12px 30px; font-size: 1rem; }
+      section { margin: 40px 15px; padding: 25px 15px; }
+    }
+    @media (max-width: 480px) {
+      h1 { font-size: 1.6rem; }
+      h2 { font-size: 1.2rem; }
+      a.vote-button, a.tg-button { padding: 10px 25px; font-size: 0.95rem; }
+      ul { gap: 8px; padding: 0 10px; }
+      li { padding: 10px 12px; font-size: 0.95rem; }
+    }
+    .show {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    const particleCount = window.innerWidth < 768 ? 25 : 50;
+    for(let i=0;i<particleCount;i++){
+      const p = document.createElement('div');
+      p.className = 'particle';
+      const size = Math.random()*6+4;
+      p.style.width = p.style.height = size+'px';
+      p.style.left = Math.random()*100+'vw';
+      p.style.top = Math.random()*100+'vh';
+      p.style.background = `rgba(77,166,255,${0.2 + Math.random()*0.3})`;
+      p.style.animationDuration = 10 + Math.random()*15 + 's';
+      document.body.appendChild(p);
+    }
+  </script>
+
+  <header>
+    <h1 class="fade">The Legg Awards 2025</h1>
+    <p class="subtitle fade">Главная премия мопсо-комьюнити</p>
+    <div class="button-container">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSevcrE-X-8X7SBCvmibnnCRdb9Rw8TIIBJ5xWdghyOSuQvXPA/viewform?usp=publish-editor" target="_blank" class="vote-button fade">Голосовать</a>
+    </div>
+  </header>
+
+  <section>
+    <h2 class="fade">Основные номинации</h2>
+    <ul>
+      <li class="fade">Мопсо-бот года</li>
+      <li class="fade">Восходящий мопсо-бот года</li>
+      <li class="fade">Мем года</li>
+      <li class="fade">Человек-мем года</li>
+      <li class="fade">Проект года</li>
+      <li class="fade">Провал года</li>
+      <li class="fade">Ивент года</li>
+      <li class="fade">Художник года</li>
+      <li class="fade">Рендер-мейкер года</li>
+      <li class="fade">Скин-мейкер года</li>
+      <li class="fade">Аниматор года</li>
+      <li class="fade">Пара года</li>
+      <li class="fade">2100-king</li>
+    </ul>
+
+    <h2 class="fade">Дополнительные номинации</h2>
+    <ul>
+      <li class="fade">Душнила года</li>
+      <li class="fade">Перформанс Легга года</li>
+      <li class="fade">Менеджер года</li>
+      <li class="fade">Руина года</li>
+      <li class="fade">Хуесос года</li>
+      <li class="fade">Таби года</li>
+    </ul>
+
+    <div style="text-align:center; margin-top:40px;">
+      <a href="https://t.me/theleggawards" target="_blank" class="tg-button fade">Перейти в Telegram</a>
+    </div>
+  </section>
+
+  <footer class="fade">
+    © 2025 The Legg Awards. Все права мопсов защищены 🐾
+  </footer>
+
+  <script>
+    function fadeOnScroll() {
+      const elements = document.querySelectorAll('.fade');
+      const triggerBottom = window.innerHeight * 0.9;
+      elements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if(rect.top < triggerBottom) {
+          el.classList.add('show');
+        }
+      });
+    }
+    window.addEventListener('scroll', fadeOnScroll);
+    window.addEventListener('load', fadeOnScroll);
+  </script>
+</body>
+</html>
